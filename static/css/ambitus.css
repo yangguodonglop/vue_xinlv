@@ -1,0 +1,100 @@
+.nar{background-color: #f84862; height: 51px; align-items: center; color: white; font-size: 1.9rem;}
+.nar_back{width: 11px; height: 20px;}
+.nar_img{width: 20px; height: 5px; margin-bottom: 5px;}
+
+.search{background-color: white; margin: 10px; height: 38px; font-size: 1.5rem; color: #666; line-height: 41px; margin-top: 52px;}
+.search1{background-color: white; margin: 10px; height: 40px; font-size: 1.5rem; color: #666; line-height: 41px; margin-top: 72px;}
+.search img{width: 200px; height: 19.5px;}
+.search1 img{width: 200px; height: 19.5px;}
+.search_txt{padding-left: 15px; padding-right: 5px; vertical-align: 6%;}
+.search_img{width: 100%;}
+
+/*热门度假*/
+.hot{width: 100%; background-color: white; margin-top: 5px; padding-bottom: 10px;}
+.hot_tit{color: white; font-size: 1.1rem; width: 40px; height: 15px; text-align: center; line-height: 15px;}
+.hot_c1{background-color: #ff5724; color: white; font-size: 1.1rem; width: 40px; height: 15px; text-align: center; line-height: 15px;}
+.hot_c2{background-color: #ff8800; color: white; font-size: 1.1rem; width: 40px; height: 15px; text-align: center; line-height: 15px;}
+.hot_c3{background-color: #ffb521; color: white; font-size: 1.1rem; width: 40px; height: 15px; text-align: center; line-height: 15px;}
+.hot_img{width: 100%; min-height: 76px; max-height: 152px;}
+.hot_img2{top: 2px; right: 6px; width: 30px;}
+.hot_txt{color: #474747; height: 34px; font-size: 1.4rem; line-height: 34px;}
+.hot_box{height: 43px; width: 100%; font-size: 1.4rem;}
+.hot_iocn{font-size: 1.1rem; right: 10px; color: #ff7435;}
+.hot_txt1{background-color: #f2f4f5; margin-top: 10px; margin-right: 10px; height: 33px; text-align: center; line-height: 33px; border-radius: 3px; font-size: 1.3rem; color: #3D3D3D;}
+.hot_show{box-shadow: 1px 3px 2px #DDDDDD;}
+
+/*人气大促*/
+.ticket_img{width: 25%;}
+.ticket_img1{width: 30%;}
+.ticket_border_1{border: 1px solid #f84862;}
+.ticket_border_2{border: 1px solid #2dbb55;}
+
+/*爆款热卖*/
+.rob_item{display: flex; flex-direction: row; justify-content: space-between;}
+.rob_item1{min-height: 160px; max-height: 320px; width: 48.5%; color: white; box-shadow: 1px 2px 2px 1px #eee;}
+.rob_rel{position: relative; }
+.rob_abs{position: absolute;}
+.rob_img{width: 146px; height: 20px;}
+.rob_img1{width: 34px; height: 16px;}
+.rob_img2{width: 100%; min-height: 115px; max-height: 230px;}
+.rob_img3{width: 60px; height: 20px; margin-right: 10px; margin-top: 7px;}
+.rob_img4{width: 100%; height: 60px;}
+.rob_txt{margin-top: -3px; margin-left: 4px;}
+.rob_hs{background-color: #000000; opacity: 0.6; width: 100%; height: 24px; padding-left: 8px; padding-right: 8px;font-size: 1.3rem; line-height: 24px; font-weight: bolder;}
+
+/*定制旅游*/
+.customized_hx{width: 70px; height: 3px; background-color: #f84862; border-radius: 1px;}
+.customized_img{width: 45px; height: 16px;}
+.customized_tit{font-weight: 700;}
+.customized_border{border: 1px solid red;}
+.cust_hr{width: 100%; height: 1px; background-color: #f2f4f5;}
+.cust_but{width: 100%; height: 45px; background-color: #f84862; color: white; font-size: 18px; border-radius: 23px; margin: 5px 15px 15px;}
+.cust_img{width: 50%;}
+.back_txt{background-color: rgba(0, 0, 0, 0.6); bottom: 5px; padding: 3px 10px; color: white;}
+
+/*订单填写*/
+.order_up_but{width: 200px; height: 100%; background-color: #f84862; font-size: 16px; text-align: center; line-height: 50px; color: white;}
+.order_money{width: 100%; line-height: 50px; font-size: 12px; padding-left: 10px; color: #666666;}
+.order_red{font-size: 18px; color: #ff3333;}
+.order_txt1{font-size: 12px; color: #999999; text-align: right; padding-right: 11px;}
+.order_iocn{width: 10px; height: 10px; vertical-align: -6%;}
+.order_iocn1{width: 15px; height: 15px; vertical-align: -15%;}
+.order_hr{width: 100%; height: 1px; background-color: #e6e6e6;}
+.order_bor{border: 1px solid #cccccc; padding: 6px; border-radius: 3px; text-align: center; line-height: 1.6rem; width: 100%;}
+.order_bor5{border: 1px solid #ff740d; padding: 6px; border-radius: 3px; text-align: center; line-height: 1.6rem; width: 100%;}
+.order_bor1{width: 40px; height: 34px; line-height: 34px; text-align: center;}
+.order_bor2{border: 1px solid #e6e6e6; border-bottom-left-radius: 17px; border-top-left-radius: 17px;}
+.order_bor3{border-bottom: 1px solid #e6e6e6; border-top: 1px solid #e6e6e6;}
+.order_bor4{border: 1px solid #e6e6e6; border-bottom-right-radius: 17px; border-top-right-radius: 17px;}
+.order_action{color: #ff8902;}
+.order_NoAction{color: #cbcbcb;}
+.order_txt2{width: 28%; line-height: 38px;}
+.order_img{width: 76px; height: 76px;}
+.order_but1{width: 81px; height: 28px; margin-top: 8px; border: 1px solid #999999; border-radius: 14px; line-height: 10px; text-align: center;}
+.order_but2{width: 81px; height: 28px; margin-top: 8px; border: 1px solid #f84954; border-radius: 14px; line-height: 10px; text-align: center;}
+.order_items{width: 100%; height: 10px; background-color: #f2f4f5;}
+.order_backs{background-color: #f2f4f5; }
+.order_backs1{background-color: #fafafa; }
+.mui-control-content {background-color: white;min-height: 215px;}
+.mui-control-content .mui-loading {margin-top: 50px;}
+
+/*订单详情*/
+.order_details_iocn{width: 14px; height: 14px; vertical-align: -10%;}
+.order_details_hr{width: 97%; height: 1px; margin-left: 3%; background-color: #f2f4f5;}
+.order_details_item_wid{width: 30%;}
+
+/*搜索*/
+.search_txt1{border: 1px solid #0062CC; color: #0062CC; padding: 2px 15px; border-radius: 20px; margin: 5px;}
+.search_txt2{border: 1px solid #6641E2; color: #6641E2; padding: 2px 15px; border-radius: 20px; margin: 5px;}
+.search_txt3{border: 1px solid #C73A4F; color: #C73A4F; padding: 2px 15px; border-radius: 20px; margin: 5px;}
+.search_txt4{border: 1px solid #EC971F; color: #EC971F; padding: 2px 15px; border-radius: 20px; margin: 5px;}
+.search_row{display: flex; flex-direction: row; justify-content: center; flex-wrap: wrap;}
+
+.search_t{vertical-align: 3.7%;}
+
+/*支付*/
+.payment_up_down{width: 23px; height: 17px; padding: 5px;}
+.payment_hei_120{height: 120px;}
+.payment_iocn{width: 32px; height: 32px;}
+.payment_txt{background-color: #f84862; padding: 2px 5px; font-size: 1.1rem; color: white; margin-left: 5px; border-radius: 3px;}
+.botm_bor{border-top: 1px solid #e2e4e5;}
