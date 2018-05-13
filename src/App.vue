@@ -1,23 +1,16 @@
 <template>
  		<div>
- 			<index></index>
-  	<index1></index1>
+  			<router-view></router-view>
  		</div>
   
 
 </template>
 
 <script>
-	import index from './components/index'
-	import index1 from './components/index1'
-	import axios from 'axios'
-
+	
 export default {
-  name: 'App',
-  components:{
-  	index,
-  	index1
-  }
+
+ 
 }
 </script>
 

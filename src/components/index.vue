@@ -2,12 +2,12 @@
 	<div>
 		<div class="row h_44 txt_cw ts_14 linear_tit_back">
 			<div class="mar_l_20" @click="addresslink()">{{places}} <img class="img1 mar_l_5" src="imgs/img_01-min.png" alt="" /></div>
-			<div class="tit_back" @click="pathurl()"><img class="img2 mar_r_5" src="../../static/imgs/img_02-min.png"    /> 目的地/关键词</div>
+			<div class="tit_back" @click="pathurl()"><img class="img2 mar_r_5" src="../../static/imgs/img_02-min.png"    /> 目的地/关键词1</div>
 			<img class="img3 mar_r_20" src="../../static/imgs/logo(96x96).png" />
 		</div>
 		<div class="mui-slider b_w zxb-slider rel">
 			<div class="mui-slider-group mui-slider-loop">
-				<div class="mui-slider-item" v-for="item in banner"><img :src="item.thumb" /></div>
+				<div class="mui-slider-item" v-for="item in banner" @click="pathurl1()"><img :src="item.thumb" /></div>
 			</div>
 		</div>
 		<!--导航模块-->
@@ -141,7 +141,7 @@
 				console.log("失败")
 			})
 			axios.get('http://mapi.xinlv123.com/xltx/mobile/recommend').then((responese) => {
-				console.log(responese.data.data)
+				//console.log(responese.data.data)
 				this.dt1 = responese.data.data.abroad
 				this.dt2 = responese.data.data.abroad
 				this.dt3= responese.data.data.abroad
@@ -199,16 +199,19 @@
 					});
 				}, 2000);
 			},
-			goto_item: function(item) {
+			go_url: function(item) {
 				let _this = this
-				_this.cur_page = item
+				_this.cur_page = item.id
+				_this.$router.push({name:'index1',params: { userId: _this.cur_page }})
 			},
 			pathurl:function(){
-				alert("1211")
 				var _this=this;
-				setTimeout(function(){
-					_this.$router.push({path:'/index1'})
-				},2000)
+				//_this.$router.push({name:'index1',params: { userId: 123 }})
+			},
+			pathurl1:function(){
+				
+				var _this=this;
+				_this.$router.push({path:'/index2'})
 			}
 			
 		}
