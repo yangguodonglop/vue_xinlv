@@ -36,6 +36,19 @@
 				<div v-html="list1.content" class="pad_10 pad_10_imgs" style="overflow-x: hidden;">
 					{{list1.content}}
 				</div>
+				<!--提交订单-->
+			<div class="h_50 zxb_fixed widths b_w" style="bottom: 0;">
+				<div class="row heights">
+					<div class="detail_but1" onclick="location.href='tel:4008700392'">
+						<img src="../../static/imgs/img_44.png" />电话咨询
+					</div>
+					<a href="javaScript:;" @click="go_url()"  class="detail_but2">
+						<!--<a href="order.html" class="detail_but2">-->
+						<span class="c_white" >立即预定</span>
+					</a>
+				</div>
+			</div>
+
 				
 		</div>		
 	</div>
@@ -52,9 +65,11 @@
 			}
 		},
 		created:function(){
+			//console.log(_this.useid)
 			let _this=this
-			_this.useid=this.$route.params.userId
-			Vue.http.get('http://mapi.xinlv123.com/xltx/mobile/goods/details' + '?id=' + _this.useid).then(function(respones) {
+			_this.useid=JSON.parse(sessionStorage.getItem('key'))
+			console.log(_this.useid)
+			Vue.http.get('http://mapi.xinlv123.com/xltx/mobile/goods/details' + '?id='+_this.useid ).then(function(respones) {
 				_this.list1 = respones.body.data;
 				var obj = JSON.parse(respones.body.data.thumb)
 				for(var i = 0; i < obj.length; i++) {
@@ -78,7 +93,21 @@
 		pathurl:function(){
 				var _this=this;
 				_this.$router.go(-1)
-			}
+		},
+		go_url:function(){
+		let _this=this
+        var token = localStorage.getItem('token');
+        var expired_at = localStorage.getItem('expired_at');
+        var refresh_expired_at = localStorage.getItem('refresh_expired_at');
+        var myDate = new Date();
+        if(Date.parse(myDate) < Date.parse(refresh_expired_at) || localStorage.getItem('userstatus') == 'true'){
+           	_this.$router.push({path:'/order'})
+
+        }
+        else {
+			_this.$router.push({path:'/login'})        	
+        }
+		}
 		}
 		
 	}

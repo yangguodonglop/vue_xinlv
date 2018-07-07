@@ -211,3 +211,49 @@ to {height:381px;}
 .index_tit_fix1{
 	line-height: 37px;
 }
+
+
+.tab_myself {
+    background: #FFFFFF;
+    bottom: 0;
+    display: table;
+    width: 100%;
+    height: 50px;
+    padding: 0;
+    position: fixed;
+    border-top: 0;
+    border-bottom: 0;
+    border-top: #e3e3e3 1px solid;
+}
+.tab_myself_a {
+    display: table-cell;
+    overflow: hidden;
+    width: 1%;
+    height: 50px;
+    text-align: center;
+    vertical-align: middle;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color: #929292;
+}
+.tab_myself_span {
+    font-family: Muiicons;
+    font-size: 24px;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 1;
+    display: inline-block;
+    text-decoration: none;
+    -webkit-font-smoothing: antialiased;
+    float: left;
+    width: 100%;
+    height: 24px;
+}
+.mui-tab-label {
+    float: left;
+    width: 100%;
+    font-size: 11px;
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

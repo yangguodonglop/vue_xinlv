@@ -1,9 +1,9 @@
 <template>
-	<div>
+	<div id="app">
 		<div class="row h_44 txt_cw ts_14 linear_tit_back">
 			<div class="mar_l_20" @click="addresslink()">{{places}} <img class="img1 mar_l_5" src="imgs/img_01-min.png" alt="" /></div>
-			<div class="tit_back" @click="pathurl()"><img class="img2 mar_r_5" src="../../static/imgs/img_02-min.png"    /> 目的地/关键词1</div>
-			<img class="img3 mar_r_20" src="../../static/imgs/logo(96x96).png" />
+			<div class="tit_back" @click="pathurl()"><img class="img2 mar_r_5" src="../../static/imgs/img_02-min.png" /> 目的地/关键词1</div>
+			<img @click="gologin()" class="img3 mar_r_20" src="../../static/imgs/logo(96x96).png" />
 		</div>
 		<div class="mui-slider b_w zxb-slider rel">
 			<div class="mui-slider-group mui-slider-loop">
@@ -33,12 +33,12 @@
 				<div class="ts_12 pad_r_5">更多 ></div>
 			</div>
 
-			<div :class="(mag_t < -35)?'index_tit_fix tit_bor':'index_tit_fix1 tit_bor'">
-				<div class="row mar_l_20 mar_r_20">
-					<span :class="(cur_page == 0)?'action_tit1':'action_tit'" @click="goto_item(0)">推荐</span>
-					<span :class="(cur_page == 1)?'action_tit1':'action_tit'" @click="goto_item(1)">出境游</span>
-					<span :class="(cur_page == 2)?'action_tit1':'action_tit'" @click="goto_item(2)">国内游</span>
-					<span :class="(cur_page == 3)?'action_tit1':'action_tit'" @click="goto_item(3)">周边游</span>
+			<div :class="(mag_t <-35)?'index_tit_fix tit_bor':'index_tit_fix1 tit_bor'">
+				<div class="row mar_l_20 mar_r_20 new_div">
+					<span :class="(cur_page == 0)?'action_tit1':'action_tit'" @click="goto_item(0)" name="gt_img1">推荐</span>
+					<span :class="(cur_page == 1)?'action_tit1':'action_tit'" @click="goto_item(1)" name="gt_img2">出境游</span>
+					<span :class="(cur_page == 2)?'action_tit1':'action_tit'" @click="goto_item(2)" name="gt_img3">国内游</span>
+					<span :class="(cur_page == 3)?'action_tit1':'action_tit'" @click="goto_item(3)" name="gt_img4">周边游</span>
 				</div>
 			</div>
 			<div :class="(mag_t < -35)?'mar_t_37':''">
@@ -77,7 +77,7 @@
 					</div>
 				</div>
 				<!--第三个内容区容器-->
-				<img class="pad_l_10 pad_r_10 widths" src="../../static/imgs/img_100.jpg" id="gt_img2" />
+				<img class="pad_l_10 pad_r_10 widths" src="../../static/imgs/img_100.jpg" id="gt_img3" />
 				<div class="pad_l_10 pad_r_10 mar_b_5">
 					<div class="row_wrap">
 						<div v-for="item in dt3" v-cloak class="col wid_49 h_190 mar_b_10" @click="go_url(item)">
@@ -94,7 +94,7 @@
 					</div>
 				</div>
 				<!--第四内容区容器-->
-				<img class="pad_l_10 pad_r_10 widths" src="../../static/imgs/img_100.jpg" id="gt_img2" />
+				<img class="pad_l_10 pad_r_10 widths" src="../../static/imgs/img_100.jpg" id="gt_img4" />
 				<div class="pad_l_10 pad_r_10 mar_b_5">
 					<div class="row_wrap">
 						<div v-for="item in dt4" v-cloak class="col wid_49 h_190 mar_b_10" @click="go_url(item)">
@@ -112,6 +112,14 @@
 				</div>
 			</div>
 		</div>
+		<div class="tab_myself" id="nav">
+			<template v-for="(item,$index) in urlnums">
+				<a class="tab_myself_a" data-url="" @click="tonavlink($index)">
+					<span class="tab_myself_span"> <img class="h_22" :src="item.navImg"/></span>
+					<span id="txt_1" class="mui-tab-label" v-bind:class="navnum ==($index)?'txt_c1':'txt_c2'">{{item.navName}}</span>
+				</a>
+			</template>
+		</div>
 	</div>
 </template>
 
@@ -126,16 +134,61 @@
 				mag_t: 10,
 				cur_page: 0,
 				dt1: '',
+				navnum: 0,
 				dt2: '',
 				dt3: '',
-				dt4: ''
+				dt4: '',
+				//				navName:['首页','景点门票','发现','积分商城','我的'],
+				//				navImg: ['../../static/imgs/nav3.png','../../static/imgs/nav3.png', '../../static/imgs/nav3.png', '../../static/imgs/nav3.png', '../../static/imgs/nav3.png'],
+				//				navUrl:['/','/index_jd','/index_jd','/index_jd','/index_jd'],
+				urlnums: [{
+						linknum: 1,
+						navImg: '../../static/imgs/nav3.png',
+						navUrl: '/',
+						navName: '首页'
+					},
+					{
+						linknum: 2,
+						navImg: '../../static/imgs/nav3.png',
+						navUrl: '/index_jd',
+						navName: '景点门票'
+					},
+					{
+						linknum: 3,
+						navImg: '../../static/imgs/nav3.png',
+						navUrl: '/index_fx',
+						navName: '发现'
+					},
+					{
+						linknum: 4,
+						navImg: '../../static/imgs/nav3.png',
+						navUrl: '/index_jf',
+						navName: '积分商城'
+					},
+					{
+						linknum: 5,
+						navImg: '../../static/imgs/nav3.png',
+						navUrl: '/index_user',
+						navName: '我的'
+					}
+
+				]
 
 			}
 		},
 		mounted: function() {
+			let _this = this
+			$(".new_div span").click(function() {
+				var hr = $(this).attr("name");
+				var nowdiv = "#" + hr
+				var anh = $(nowdiv).offset().top;
+				$("html,body").stop().animate({
+					scrollTop: anh - 40
+				}, 500);
+			})
 
 			axios.get('http://mapi.xinlv123.com/xltx/mobile/banner').then((responese) => {
-				this.banner = responese.data.data
+				_this.banner = responese.data.data
 
 			}).catch((err) => {
 				console.log("失败")
@@ -144,86 +197,121 @@
 				//console.log(responese.data.data)
 				this.dt1 = responese.data.data.abroad
 				this.dt2 = responese.data.data.abroad
-				this.dt3= responese.data.data.abroad
+				this.dt3 = responese.data.data.abroad
 				this.dt4 = responese.data.data.abroad
 
 			}).catch((err) => {
 				console.log("失败")
 			})
-			this.createEditor();
-//			setTimeout(function() {
-//				window.onscroll = function() {
-//				//获取div距离顶部的距离
-//				var mTop = this.document.getElementById('txt_tit').offsetTop;
-//				//减去滚动条的高度
-//				var sTop;
-//				if(document.documentElement && document.documentElement.scrollTop)
-//					sTop = document.documentElement.scrollTop;
-//				else if(document.body)
-//					sTop = document.body.scrollTop;
-//				var result = mTop - sTop;
-//				app.mag_t = result;
-//
-//				//得到每个部位距离顶部的距离
-//				var img1 = document.getElementById('gt_img1').offsetTop;
-//				var img2 = document.getElementById('gt_img2').offsetTop;
-//				var img3 = document.getElementById('gt_img3').offsetTop;
-//				var img4 = document.getElementById('gt_img4').offsetTop;
-//				var n1 = img1 - sTop;
-//				var n2 = img2 - sTop;
-//				var n3 = img3 - sTop;
-//				var n4 = img4 - sTop;
-//			
-//			
-//
-//				if(n1 < 48 && n2 > 48)
-//					app.cur_page = 0;
-//				else if(n2 < 48 && n3 > 48)
-//					app.cur_page = 1;
-//				else if(n3 < 48 && n4 > 48)
-//					app.cur_page = 2;
-//				else if(n4 < 48)
-//					app.cur_page = 3;
-//			}
-//					}, 2000);
-		
+			_this.createEditor();
+
+			window.onscroll = function() {
+
+				//获取div距离顶部的距离
+				var mTop =document.getElementById('txt_tit').offsetTop;
+				
+				//减去滚动条的高度
+
+				var sTop;
+				if(document.documentElement && document.documentElement.scrollTop)
+					sTop = document.documentElement.scrollTop;
+				else if(document.body)
+					sTop = document.body.scrollTop;
+				var result = mTop - sTop;
+
+				_this.mag_t = result;
+
+				//得到每个部位距离顶部的距离
+				var img1 = document.getElementById('gt_img1').offsetTop;
+				var img2 = document.getElementById('gt_img2').offsetTop;
+				var img3 = document.getElementById('gt_img3').offsetTop;
+				var img4 = document.getElementById('gt_img4').offsetTop;
+				var n1 = img1 - sTop;
+				var n2 = img2 - sTop;
+				var n3 = img3 - sTop;
+				var n4 = img4 - sTop;
+
+				if(n1 < 48 && n2 > 48) {
+
+					_this.cur_page = 0;
+				} else if(n2 < 48 && n3 > 48) {
+
+					_this.cur_page = 1;
+				} else if(n3 < 48 && n4 > 48) {
+					_this.cur_page = 2;
+				} else if(n4 < 48) {
+					_this.cur_page = 3;
+				}
+
+			}
 
 		},
 		methods: {
+
 			createEditor: function() {
-				setTimeout(function() {
+				
 
 					var gallery = mui('.zxb-slider');
+					setTimeout(function() {
 					gallery.slider({
 						interval: 5000 //自动轮播周期，若为0则不自动播放，默认为0；
 					});
-				}, 2000);
+				}, 200);
+			},
+			goto_item: function(n) {
+
+				//console.log(document.getElementById('gt_img' + (n + 1)).offsetTop);
+				//window.scrollTo(0, document.getElementById('gt_img' + (n + 1)).offsetTop - 75);
 			},
 			go_url: function(item) {
 				let _this = this
 				_this.cur_page = item.id
-				_this.$router.push({name:'index1',params: { userId: _this.cur_page }})
+
+				sessionStorage.setItem('key', _this.cur_page)
+				//				_this.$router.push({name:'index1',params: { userId: _this.cur_page }})
+				_this.$router.push({
+					path: '/index1'
+				})
 			},
-			pathurl:function(){
-				var _this=this;
+			pathurl: function() {
+				var _this = this;
 				//_this.$router.push({name:'index1',params: { userId: 123 }})
 			},
-			pathurl1:function(){
-				
-				var _this=this;
-				_this.$router.push({path:'/index2'})
+			pathurl1: function() {
+
+				var _this = this;
+				_this.$router.push({
+					path: '/index2'
+				})
+			},
+			gologin: function() {
+				var _this = this
+				_this.$router.push({
+					path: '/login'
+				})
+			},
+			tonavlink: function(n) {
+				let _this = this
+				_this.$router.push({
+					path: this.urlnums[n].navUrl
+				})
+
 			}
-			
+
 		}
 	}
 </script>
 
 <style>
 	.rel i {
-    width: auto;
-    max-height: 90px;
-    overflow: hidden;
-    display: block;
-}
-
+		width: auto;
+		max-height: 90px;
+		overflow: hidden;
+		display: block;
+	}
+	
+	.tit_back {
+		line-height: 30px;
+		padding-top: 0px;
+	}
 </style>
