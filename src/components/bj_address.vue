@@ -12,7 +12,7 @@
 				</div>
 				<div class="br4"></div>
 				<div class="h_44 b_w row pad_l_15 pad_r_15">
-					<span class="w_75 ts_w_600">联系电话</span>
+					<span class="w_75 ts_w_600">联系电话   </span>
 					<input type="number" name="" v-model="address.phone" placeholder="填写联系电话" style="border: 0; flex-grow: 1; height: 40px; margin-top: 13px; font-size: 14px;" />
 				</div>
 				<div class="br4"></div>
@@ -28,6 +28,7 @@
 				</div>
 			</div>
 			<div class="txt_cw ts_16 but_bac mar_13 mar_t_30" @click="storeAddress()">
+				
 				保存地址
 			</div>
 		</div>

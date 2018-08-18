@@ -6,6 +6,7 @@
 					<a class="mui-icon mui-pull-left"  @click="pathurl()"><img class="img15" src="../../static/imgs/img_23.png" /></a>
 				</header>
 				<!-- 图片轮播 -->
+				<div style="width: 100%; height: 30px; line-height: 30px; text-align: center; color: #666666;">父子传值</div>
 				<div class="mui-slider swiper" style="max-height: 320px;">
 					<div id="banner_id" class="mui-slider-group mui-slider-loop">
 						<div class="mui-slider-item" v-for="(item,i) in list2" :key='i'>

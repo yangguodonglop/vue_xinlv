@@ -194,56 +194,18 @@
 				console.log("失败")
 			})
 			axios.get('http://mapi.xinlv123.com/xltx/mobile/recommend').then((responese) => {
-				//console.log(responese.data.data)
-				this.dt1 = responese.data.data.abroad
-				this.dt2 = responese.data.data.abroad
-				this.dt3 = responese.data.data.abroad
-				this.dt4 = responese.data.data.abroad
+				console.log(responese)
+				this.dt1 = responese.data.data.theme
+				this.dt2 = responese.data.data.theme
+				this.dt3 = responese.data.data.theme
+				this.dt4 = responese.data.data.theme
 
 			}).catch((err) => {
 				console.log("失败")
 			})
 			_this.createEditor();
 
-			window.onscroll = function() {
-
-				//获取div距离顶部的距离
-				var mTop =document.getElementById('txt_tit').offsetTop;
-				
-				//减去滚动条的高度
-
-				var sTop;
-				if(document.documentElement && document.documentElement.scrollTop)
-					sTop = document.documentElement.scrollTop;
-				else if(document.body)
-					sTop = document.body.scrollTop;
-				var result = mTop - sTop;
-
-				_this.mag_t = result;
-
-				//得到每个部位距离顶部的距离
-				var img1 = document.getElementById('gt_img1').offsetTop;
-				var img2 = document.getElementById('gt_img2').offsetTop;
-				var img3 = document.getElementById('gt_img3').offsetTop;
-				var img4 = document.getElementById('gt_img4').offsetTop;
-				var n1 = img1 - sTop;
-				var n2 = img2 - sTop;
-				var n3 = img3 - sTop;
-				var n4 = img4 - sTop;
-
-				if(n1 < 48 && n2 > 48) {
-
-					_this.cur_page = 0;
-				} else if(n2 < 48 && n3 > 48) {
-
-					_this.cur_page = 1;
-				} else if(n3 < 48 && n4 > 48) {
-					_this.cur_page = 2;
-				} else if(n4 < 48) {
-					_this.cur_page = 3;
-				}
-
-			}
+		
 
 		},
 		methods: {

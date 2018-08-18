@@ -11,7 +11,7 @@
 						<span>{{item.name}}</span>
 						<span>{{item.phone}}</span>
 					</div>
-					<span class="ts_13" style="text-align: left;">{{item.province}}{{item.city}}{{item.area}}{{item.address}}</span>
+					<span class="ts_13" style="text-align: left; ">{{item.province}}{{item.city}}{{item.area}}{{item.address}}</span>
 					<span class="br3"></span>
 					<div class="row ts_12">
 						<div v-if="item.is_default==1">
@@ -29,7 +29,7 @@
 			</template>
 			<div class="fix_but b_w">
 				<div class="txt_cw ts_16 but_bac mar_13" @click="createAddress()">
-					添加新地址
+					添加新地址11
 				</div>
 			</div>
 		</div>
