@@ -35,7 +35,7 @@
 
 			<div :class="(mag_t <-35)?'index_tit_fix tit_bor':'index_tit_fix1 tit_bor'">
 				<div class="row mar_l_20 mar_r_20 new_div">
-					<span :class="(cur_page == 0)?'action_tit1':'action_tit'" @click="goto_item(0)" name="gt_img1">推荐</span>
+					<span :class="(cur_page == 0)?'action_tit1':'action_tit'" @click="goto_item(0)" name="gt_img1">推荐1</span>
 					<span :class="(cur_page == 1)?'action_tit1':'action_tit'" @click="goto_item(1)" name="gt_img2">出境游</span>
 					<span :class="(cur_page == 2)?'action_tit1':'action_tit'" @click="goto_item(2)" name="gt_img3">国内游</span>
 					<span :class="(cur_page == 3)?'action_tit1':'action_tit'" @click="goto_item(3)" name="gt_img4">周边游</span>
@@ -125,6 +125,7 @@
 
 <script>
 	import axios from 'axios'
+	import API from '@/API/api.js'
 
 	export default {
 		data() {
@@ -176,7 +177,22 @@
 
 			}
 		},
+		created() {
+			
+		},
 		mounted: function() {
+			
+			let data = {
+				
+			} //请求参数
+			API.login(data)
+				.then(res => {
+					console.log(res.data)
+					_this.banner = res.data
+				}).catch(err => {
+					//请求失败
+				})
+			
 			let _this = this
 			$(".new_div span").click(function() {
 				var hr = $(this).attr("name");
@@ -187,14 +203,14 @@
 				}, 500);
 			})
 
-			axios.get('http://mapi.xinlv123.com/xltx/mobile/banner').then((responese) => {
-				_this.banner = responese.data.data
-
-			}).catch((err) => {
-				console.log("失败")
-			})
+//			axios.get('http://mapi.xinlv123.com/xltx/mobile/banner').then((responese) => {
+//				//_this.banner = responese.data.data
+//
+//			}).catch((err) => {
+//				console.log("失败")
+//			})
 			axios.get('http://mapi.xinlv123.com/xltx/mobile/recommend').then((responese) => {
-				console.log(responese)
+				//console.log(responese)
 				this.dt1 = responese.data.data.theme
 				this.dt2 = responese.data.data.theme
 				this.dt3 = responese.data.data.theme
@@ -205,16 +221,13 @@
 			})
 			_this.createEditor();
 
-		
-
 		},
 		methods: {
 
 			createEditor: function() {
-				
 
-					var gallery = mui('.zxb-slider');
-					setTimeout(function() {
+				var gallery = mui('.zxb-slider');
+				setTimeout(function() {
 					gallery.slider({
 						interval: 5000 //自动轮播周期，若为0则不自动播放，默认为0；
 					});
